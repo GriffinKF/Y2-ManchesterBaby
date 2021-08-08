@@ -1,0 +1,21 @@
+; THIS PROGRAM ADDS TWO NUMBERS TOGETHER
+; The program starts at address 1, so we need to pad out address 0 
+
+          VAR 0       ; Declare 32-bit variable to fill space   0 00
+START:    LDN NUM01   ; Copy variable to accumulator (negated)   1 27
+        STO MYSUM   ; Store accumulator to variable  5 39
+        LDN MYSUM   ; Copy variable to accumulator (negated)  4 29
+          SUB NUM02   ; Subtract variable from accumulator to get sum (negated)  2 48
+          STO MYSUM   ; Store accumulator to variable - saves answer  3 39
+
+; The next two instructions negate the stored answer
+
+          
+          
+END:      STP         ; Stop processor 6 70
+
+; Variable declarations follow
+
+NUM01:    VAR 1025    ; Declare 32-bit variable  7
+NUM02:    VAR 621     ; Declare 32-bit variable  8
+MYSUM:    VAR 0       ; Declare 32-bit variable  9
